@@ -1,3 +1,22 @@
+// Intro blink animation (plays once per browser session)
+const introOverlay = document.getElementById('introOverlay');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (introOverlay) {
+  if (reducedMotion || sessionStorage.getItem('introPlayed')) {
+    introOverlay.classList.add('is-hidden');
+  } else {
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => introOverlay.classList.add('blink'), 1200);
+    setTimeout(() => introOverlay.classList.add('fade-out'), 2500);
+    setTimeout(() => {
+      introOverlay.classList.add('is-hidden');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('introPlayed', '1');
+    }, 3000);
+  }
+}
+
 // Mobile nav toggle
 const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');

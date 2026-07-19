@@ -8,9 +8,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
+
+<!-- Intro / Lid-Blink Animation -->
+<div class="intro-overlay" id="introOverlay" role="presentation" aria-hidden="true">
+  <div class="intro-content">
+    <svg class="intro-eye" viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg">
+      <g class="intro-eye-group">
+        <path class="eye-outline" d="M20,90 C70,40 170,40 220,90 C170,140 70,140 20,90 Z"/>
+        <path class="lash" d="M45,68 L30,30"/>
+        <path class="lash" d="M75,50 L65,10"/>
+        <path class="lash" d="M105,42 L100,2"/>
+        <path class="lash" d="M135,42 L140,2"/>
+        <path class="lash" d="M165,50 L175,10"/>
+        <path class="lash" d="M195,68 L210,30"/>
+      </g>
+    </svg>
+    <p class="intro-brand">JOSIE<span>ATELIER</span></p>
+  </div>
+</div>
 
 <!-- Header / Nav -->
 <header class="site-header" id="header">
@@ -287,6 +305,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>

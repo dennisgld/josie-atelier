@@ -106,6 +106,102 @@ section { padding: 100px 0; }
 
 .btn-block { width: 100%; text-align: center; }
 
+/* ===== Intro animation ===== */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.intro-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+.intro-overlay.is-hidden { display: none; }
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.intro-eye {
+  width: min(60vw, 260px);
+  height: auto;
+  overflow: visible;
+}
+
+.intro-brand {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  color: var(--beige);
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: introBrandIn 0.5s ease forwards;
+  animation-delay: 1.7s;
+}
+.intro-brand span {
+  color: var(--gold-light);
+  font-weight: 400;
+  margin-left: 6px;
+}
+@keyframes introBrandIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+.intro-eye-group {
+  transform-origin: 120px 90px;
+  transform-box: fill-box;
+}
+.intro-overlay.blink .intro-eye-group {
+  animation: introBlink 0.5s ease-in-out;
+}
+
+.eye-outline {
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 480;
+  stroke-dashoffset: 480;
+  animation: introDraw 1s ease forwards;
+}
+.lash {
+  fill: none;
+  stroke: var(--gold-light);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: introDraw 0.4s ease forwards;
+  animation-delay: 0.5s;
+}
+.lash:nth-child(3) { animation-delay: 0.55s; }
+.lash:nth-child(4) { animation-delay: 0.6s; }
+.lash:nth-child(5) { animation-delay: 0.6s; }
+.lash:nth-child(6) { animation-delay: 0.65s; }
+.lash:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes introDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes introBlink {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-overlay { display: none; }
+}
+
 /* ===== Header ===== */
 .site-header {
   position: fixed;
